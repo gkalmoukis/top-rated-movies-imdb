@@ -14,6 +14,7 @@ class TitlesController extends Controller
     }
 
     public function index() {
-        return response()->json($this->client->getMostPopularMovies(), 200);
+        // $this->client->getMostPopularMovies()
+        return view('welcome');
     }
 }
