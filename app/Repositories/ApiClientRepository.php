@@ -5,20 +5,19 @@
 
     class ApiClientRepository implements ApiClientInterface{
 
-        public function get($endpoint){
+        public function get($endpoint, $query = [] ){
 
             $client = new Client();
+            
             $url = config('api.base_url').$endpoint;
-
-            $headers = [
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-            ];
 
             
             $response = $client->request(
-                'GET',$url, [
-                    'headers' => config('api.headers')
+                'GET',
+                $url, 
+                [
+                    'headers' => config('api.headers'),
+                    'query'   => $query
                 ]
             );
 

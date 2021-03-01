@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TitleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\TitlesController::class, 'index'])->name('index');
+Route::get('/', [ TitleController::class, 'index'])->name('index');
+Route::get('/fetch',[TitleController::class, 'fetch'])->name('fetch');
+Route::get('/{id}', [ TitleController::class, 'show'])->name('show');

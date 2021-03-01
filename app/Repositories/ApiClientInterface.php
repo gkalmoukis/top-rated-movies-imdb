@@ -3,5 +3,5 @@
 namespace App\Repositories;
 
 interface ApiClientInterface {
-    public function get(string $endpoint);
+    public function get(string $endpoint, array $query = []);
 }
