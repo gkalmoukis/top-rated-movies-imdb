@@ -1,31 +1,48 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
+@extends('layouts.app')
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-
-<body>
-    <h1>{{ config('app.name')}}</h1>
-    <p>
-        <a class="btn btn-primary" href="{{route('fetch')}}">{{__('index.actions.fetch')}}</a>
-    </p>
-    <table>
-        <tr>
-            <th>{{__('index.table.id')}}</th>
-            <th>{{__('index.table.title')}}</th>
-        </tr>
-        @foreach ($titles as $title)
-        <tr>
-            <td>{{$title->imdb_id}}</td>
-            <td>{{$title->title}}</td>
-        </tr>
-    @endforeach
-    </table>
+@section('content')
+<div class="d-flex justify-content-between">
     
-</body>
-</html>
+    <div class="page-header">
+        <h1>{{ config('app.name')}}</h1>
+    </div>
+
+    <div class="page-actions">
+        
+        <a class="btn btn-primary" href="{{route('fetch')}}">{{__('index.actions.fetch')}}</a>
+        
+    </div>
+
+</div>
+
+<div class="row">
+    @foreach ($titles as $title)
+    
+    <div class="card card-movie col-4">
+        <img src="{{$title->image}}" class="card-img-top" alt="{{$title->title}}">
+        <div class="card-body">
+            <a href="https://imdb.com/title/{{$title->imdb_id}}" target="_blank">
+                <i class="fa fa-imdb card-movie-button-link" data-toggle="tooltip" data-placement="bottom" title="Link to Imdb"></i>
+            </a>
+
+            <h5 class="card-title">{{$title->title}}</h5>
+            
+            <div class="d-flex justify-content-between">
+                <span class="card-movie-info">{{$title->release_year}}</span>
+            
+                <span class="card-movie-info">{{$title->duration}}</span>
+                
+                <span class="card-movie-info float-right"><i class="fa fa-star"></i> {{$title->rating}} / 10</span>
+            </div>
+        </div>
+    </div>
+
+
+
+@endforeach
+
+</div>
+
+    
+
+@endsection

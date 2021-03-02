@@ -6,3 +6,41 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+.card-movie {
+    width: 18rem;
+    margin:1rem; 
+    border-radius: 10px;
+}
+.card-movie img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 20rem;
+}
+.card-movie-info {
+    color: #5e5c5c;
+}
+
+.card-movie-info i{
+    font-size: 20px;
+}
+.card-title{
+    width: 80%;
+    height: 4rem;
+}
+.card-movie-button-link{
+    background-color: $blue;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    right: 20px;
+    bottom: 111px;
+    font-size: 30px;
+    padding-left: 18px;
+    padding-top: 15px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
