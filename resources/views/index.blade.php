@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between">
     
     <div class="page-header">
-        <h1>{{ config('app.name')}}</h1>
+        <h1>{{ config('app.name') }}</h1>
     </div>
 
     <div class="page-actions">
@@ -15,30 +15,24 @@
 
 </div>
 
-<div class="row">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
     @foreach ($titles as $title)
-    
-    <div class="card card-movie col-4">
+    <div class="card card-movie">
         <img src="{{$title->image}}" class="card-img-top" alt="{{$title->title}}">
         <div class="card-body">
-            <a href="https://imdb.com/title/{{$title->imdb_id}}" target="_blank">
-                <i class="fa fa-imdb card-movie-button-link" data-toggle="tooltip" data-placement="bottom" title="Link to Imdb"></i>
-            </a>
+          
 
-            <h5 class="card-title">{{$title->title}}</h5>
-            
+            <h5 class="card-title"> <a href="https://imdb.com/title/{{$title->imdb_id}}" target="_blank"> {{$title->title}} </a></h5>
             <div class="d-flex justify-content-between">
                 <span class="card-movie-info">{{$title->release_year}}</span>
             
-                <span class="card-movie-info">{{$title->duration}}</span>
+                <span class="card-movie-info">{{  __('index.card.duration', ["duration" => $title->duration  ])  }}</span>
                 
-                <span class="card-movie-info float-right"><i class="fa fa-star"></i> {{$title->rating}} / 10</span>
+                <span class="card-movie-info float-right"><i class="fa fa-star"></i> {{  __('index.card.rating', ["rating" => $title->rating  ])  }}</span>
             </div>
+            
         </div>
     </div>
-
-
-
 @endforeach
 
 </div>
