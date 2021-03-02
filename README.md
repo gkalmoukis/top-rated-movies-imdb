@@ -19,6 +19,7 @@ Create a new local database schema.
 ```
 mysql -u <user> -p
 CREATE DATABASE gkal_top_rated;
+exit;
 ```
 
 
