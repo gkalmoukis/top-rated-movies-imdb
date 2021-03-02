@@ -7,5 +7,10 @@ return [
     'card' => [
         'duration' => ':duration \'',
         'rating' => ':rating / 10'
+    ],
+    'filter' => [
+        'label' => 'Year',
+        'placeholder' => 'Select year',
+        'clear' => 'Clear'
     ]
 ];

@@ -8,6 +8,10 @@
 @import '~bootstrap/scss/bootstrap';
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
+#select-year{
+    width: 10rem;
+}
+
 .card-movie {
     width: 18rem;
     margin:1rem; 
@@ -43,4 +47,5 @@
     color: #FFFFFF;
     cursor: pointer;
 }
+
 

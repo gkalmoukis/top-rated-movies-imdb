@@ -46,14 +46,15 @@ class FetchFromApiCommand extends Command
     {
         $topRatedMovies = $this->imdb->getTopRatedMovies();
 
-        foreach ( array_slice($topRatedMovies, 0, 5)  as $key => $movie) {
+        foreach ( array_slice($topRatedMovies, 0, 20)  as $key => $movie) {
             
             $fetchedTitle = $this->imdb->getDetails(RegularExpressionHelper::matchedId($movie->id));
             
             $fetchedTitle->imdb_id = RegularExpressionHelper::matchedId($movie->id);
             $fetchedTitle->imdb_sort = $key;
             $fetchedTitle->rating = $movie->chartRating;
-        
+            
+            $this->titles->setTitle($fetchedTitle);
         }
 
         return 1;

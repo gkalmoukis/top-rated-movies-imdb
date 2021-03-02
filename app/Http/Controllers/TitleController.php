@@ -23,7 +23,10 @@ class TitleController extends Controller
      */
     public function index()
     {   
+        $years = $this->titles->getDistinctYears();
+        
         return view('index', [
+            "years"  => $years,  
             "titles" => $this->titles->getAllTitles()
         ]);
     }

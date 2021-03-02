@@ -8,7 +8,22 @@ class TitleRepository implements TitleRepositoryInterface {
  
     public function getAllTitles()
     {
-        return Title::all();
+        $titles = Title::all();
+
+        if(request()->filled('year')){
+            $titles = $titles->where('release_year', request()->year);
+        }
+        
+        return $titles;
+        
+    }
+
+    public function getDistinctYears()
+    {
+        return Title::select('release_year')
+            ->distinct()
+            ->orderBy('release_year', 'asc')
+            ->get();
     }
     
     public function getTitle($id)

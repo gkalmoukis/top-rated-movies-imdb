@@ -13031,6 +13031,10 @@ h3 {
   clip: auto;
 }
 
+#select-year {
+  width: 10rem;
+}
+
 .card-movie {
   width: 18rem;
   margin: 1rem;
